@@ -1,4 +1,4 @@
-require "yubikey/neo/version"
+require 'yubikey/neo/version'
 
 module Yubikey
   module Neo
