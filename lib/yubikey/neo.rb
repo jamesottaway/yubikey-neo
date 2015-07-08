@@ -1,9 +1,16 @@
 require 'smartcard'
+require 'yubioath'
 
 module Yubikey
   class Neo
     def initialize(name: 'Yubico Yubikey NEO OTP+CCID')
       @name = name
+    end
+
+    def yubioath
+      tap do |neo|
+        yield YubiOATH.new(neo)
+      end
     end
 
     def tap
