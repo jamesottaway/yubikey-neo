@@ -17,5 +17,6 @@ Gem::Specification.new do |spec|
   spec.require_paths = ['lib']
 
   spec.add_dependency 'smartcard', '~> 0.5.5'
+  spec.add_dependency 'thor', '~> 0.19.1'
   spec.add_dependency 'yubioath', '~> 1.0'
 end
