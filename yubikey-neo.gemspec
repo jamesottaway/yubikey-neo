@@ -18,4 +18,5 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency 'smartcard', '~> 0.5.6'
   spec.add_dependency 'yubioath', '~> 1.1'
+  spec.add_dependency 'thor', '~> 0.19.1'
 end
