@@ -1,5 +1,4 @@
 module Yubikey
-  module Neo
-    # Your code goes here...
+  class Neo
   end
 end
