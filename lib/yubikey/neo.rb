@@ -14,13 +14,22 @@ module Yubikey
     end
 
     def tap
-      Context.tap do |context|
-        begin
-          card = context.card(@name, :shared)
-          yield card
-        ensure
-          card.disconnect unless card.nil?
+      card_names(@name).each do |card_name|
+        Context.tap do |context|
+          begin
+            card = context.card(card_name, :shared)
+            yield card
+          ensure
+            card.disconnect unless card.nil?
+          end
         end
+      end
+    end
+
+    # Get the card names matching {name}
+    def card_names(name)
+      Context.tap do |cxt|
+        cxt.readers.select { |name| name.include?(name) }
       end
     end
 
