@@ -3,7 +3,7 @@ require 'yubioath'
 
 module Yubikey
   class Neo
-    def initialize(name: 'Yubico Yubikey NEO OTP+CCID')
+    def initialize(name:)
       @name = name
     end
 
