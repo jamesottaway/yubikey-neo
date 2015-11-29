@@ -4,6 +4,11 @@ require 'thor'
 class Yubikey::Neo
   module CLI
     class YubiOATH < Thor
+      class_option 'card-name',
+                   desc: 'Name of the Yubikey device to use',
+                   type: :string,
+                   default: 'Yubikey'
+
       desc 'add NAME', 'Add a token'
       def add(name)
         neo.yubioath do |yubioath|
@@ -39,7 +44,7 @@ class Yubikey::Neo
       private
 
       def neo
-        @neo ||= Yubikey::Neo.new
+        @neo ||= Yubikey::Neo.new(name: options['card-name'])
       end
     end
   end
